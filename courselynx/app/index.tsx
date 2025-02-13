@@ -15,6 +15,13 @@ export default function Index() {
           <Text>Group Chat Page</Text>
         </Link>
       </TouchableOpacity>
+
+      <TouchableOpacity style={styles.devButton}>
+        <Link href={"/registration"}>
+          <Text>Registration</Text>
+        </Link>
+      </TouchableOpacity>
+
     </View>
   );
 }

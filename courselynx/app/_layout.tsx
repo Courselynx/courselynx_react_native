@@ -18,6 +18,12 @@ export default function RootLayout() {
             headerShown: false,
           }}
         />
+        <Stack.Screen
+          name="registration"
+          options={{
+            headerShown: false,
+          }}
+        />
       </Stack>
     </>
   );
