@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { View, Text } from "react-native";
 import Switch from "@/components/Switch";
-import styles from "./SettingsStyles";
+import styles from "./settings.styles";
 
 export default function NotificationScreen() {
   const notifications = {

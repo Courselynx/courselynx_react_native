@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import { useLocalSearchParams } from "expo-router";
-import ProfilePage from "./ProfileScreen";
+import PublicView from "./public";
+import EditView from "./edit";
 
 export default function ProfileScreen() {
   const { username } = useLocalSearchParams() || {};
@@ -24,7 +25,7 @@ export default function ProfileScreen() {
           hasSettings={true}
           withBorder
         />
-        <ProfilePage.Self userProfile={data} />
+        <EditView userProfile={data} />
       </>
     ) : (
       <>
@@ -33,7 +34,7 @@ export default function ProfileScreen() {
           hasShare={true}
           withBorder
         />
-        <ProfilePage.Public userProfile={data} />
+        <PublicView userProfile={data} />
       </>
     );
   }

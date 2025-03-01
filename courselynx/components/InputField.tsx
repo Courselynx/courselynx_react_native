@@ -11,7 +11,7 @@ interface InputFieldProps {
   mulitline?: boolean;
   keyboardType?: KeyboardTypeOptions;
   labelSytle?: StyleProp<TextStyle>;
-  inputStyles?: StyleProp<TextStyle>;
+  inputStyle?: StyleProp<TextStyle>;
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -23,7 +23,7 @@ const InputField: React.FC<InputFieldProps> = ({
   mulitline = false,
   keyboardType = "default",
   labelSytle = {},
-  inputStyles = {},
+  inputStyle = {},
 }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
   const togglePasswordVisibility = () => setIsPasswordVisible(!isPasswordVisible);
@@ -33,7 +33,7 @@ const InputField: React.FC<InputFieldProps> = ({
       <Text style={[styles.label, labelSytle]}>{label}</Text>
       <View style={styles.inputContainer}>
         <TextInput
-          style={[styles.input, inputStyles]}
+          style={[styles.input, inputStyle]}
           value={value}
           onChangeText={onChangeText}
           placeholder={placeholder}

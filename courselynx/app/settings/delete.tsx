@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import InputField from '@/components/InputField';
 import Button from '@/components/Button';
 import Modal from '@/components/Modal';
-import styles from './SettingsStyles';
+import styles from './settings.styles';
 
 export default function DeleteAccountScreen() {
   const [password, setPassword] = useState("");

@@ -3,19 +3,19 @@ import { TouchableOpacity, Text, StyleSheet, StyleProp, TextStyle, ViewStyle, Ge
 interface ButtonProps {
   text: string;
   onPress: (event: GestureResponderEvent) => void;
-  buttonStyles?: StyleProp<ViewStyle>;
-  textStyles?: StyleProp<TextStyle>;
+  buttonStyle?: StyleProp<ViewStyle>;
+  textStyle?: StyleProp<TextStyle>;
 }
 
 const Button: React.FC<ButtonProps> = ({
   text,
   onPress,
-  buttonStyles = {},
-  textStyles = {},
+  buttonStyle = {},
+  textStyle = {},
 }) => {
   return (
-    <TouchableOpacity style={[styles.button, buttonStyles]} onPress={onPress}>
-      <Text style={[styles.buttonText, textStyles]}>{text}</Text>
+    <TouchableOpacity style={[styles.button, buttonStyle]} onPress={onPress}>
+      <Text style={[styles.buttonText, textStyle]}>{text}</Text>
     </TouchableOpacity>
   );
 };

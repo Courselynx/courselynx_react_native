@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Link } from "expo-router";
-import styles from "./SettingsStyles";
+import styles from "./settings.styles";
 
 export default function SettingsScreen() {
   const settingsOptions = {

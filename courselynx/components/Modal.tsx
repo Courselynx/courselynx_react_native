@@ -18,7 +18,7 @@ interface ModalProps {
   hasButtonYesNo?: boolean;
   onPressNo?: () => void;
   onPressYes?: () => void;
-  modalStyles?: StyleProp<ViewStyle>;
+  modalStyle?: StyleProp<ViewStyle>;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -28,7 +28,7 @@ const Modal: React.FC<ModalProps> = ({
   hasButtonYesNo = false,
   onPressNo = () => { },
   onPressYes = () => { },
-  modalStyles = {}
+  modalStyle = {}
 }) => {
   return (
     <BlurView
@@ -48,7 +48,7 @@ const Modal: React.FC<ModalProps> = ({
           {/* Handles clicks to close modal on click outside of the modal */}
           <Pressable onPress={onRequestClose} style={{ flex: 1 }} />
 
-          <View style={[styles.container, modalStyles]}>
+          <View style={[styles.container, modalStyle]}>
             <View style={styles.bar} />
 
             {text != "" && (
