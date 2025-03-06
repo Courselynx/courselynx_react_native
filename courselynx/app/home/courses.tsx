@@ -1,6 +1,6 @@
 import { View, StyleSheet, ScrollView } from "react-native"
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import CourseCard from "@/components/CourseComponents/CourseCard";
+import CourseCard from "@/components/HomeComponents/CourseCard";
 
 interface Course {
     id: number;

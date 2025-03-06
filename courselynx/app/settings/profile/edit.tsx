@@ -16,7 +16,6 @@ interface ProfileProps {
 };
 
 export default function EditView({ userProfile }: { userProfile: ProfileProps }) {
-  // State for form inputs
   const [avatar, setAvatar] = useState(userProfile.avatar);
   const [name, setName] = useState(userProfile.name);
   const [major, setMajor] = useState(userProfile.major);
@@ -38,7 +37,7 @@ export default function EditView({ userProfile }: { userProfile: ProfileProps })
       <ScrollView contentContainerStyle={[styles.container, styles.lightBackgroundColor]} automaticallyAdjustKeyboardInsets={true}>
         {/* Profile Image */}
         <View style={styles.profileContainer}>
-          <Avatar src={avatar} onEdit={() => setAvatar} />
+          <Avatar src={avatar} hasEditBtn onEdit={() => setAvatar} />
         </View>
 
         {/* Input Fields */}
@@ -49,7 +48,7 @@ export default function EditView({ userProfile }: { userProfile: ProfileProps })
 
           <InputField label="Graduation Year*" value={gradYear} onChangeText={setGradYear} placeholder="Type your graduation year" keyboardType="numeric" />
 
-          <InputField label="Bio" value={bio} onChangeText={setBio} placeholder="Tell us about yourself" mulitline={true} inputStyles={{ height: "auto", maxHeight: 100 }} />
+          <InputField label="Bio" value={bio} onChangeText={setBio} placeholder="Tell us about yourself" mulitline={true} inputStyle={{ height: "auto", maxHeight: 100 }} />
 
           <InputField label="LinkedIn" value={linkedin} onChangeText={setLinkedin} placeholder="Type your username" />
 

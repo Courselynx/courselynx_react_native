@@ -1,17 +1,22 @@
 import React from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
-import { Link, usePathname } from "expo-router";
+import { Link } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import * as Haptics from "expo-haptics";
 
 interface NavBarProps {
-  activeScreen: "chats" | "courses";
-  setActiveScreen: (screen: "chats" | "courses") => void;
+  activeScreen: string;
+  setActiveScreen: (screen: string) => void;
 }
 
 export default function NavBar({ activeScreen, setActiveScreen }: NavBarProps) {
 
-  const handlePress = async (screen: "chats" | "courses") => {
+  const tabs = [
+    { name: "Chats", activeIcon: "chatbubble-ellipses" as const, inactiveIcon: "chatbubble-ellipses-outline" as const },
+    { name: "Courses", activeIcon: "book" as const, inactiveIcon: "book-outline" as const },
+  ];
+
+  const handlePress = async (screen: string) => {
     await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     setActiveScreen(screen);
   };
@@ -19,27 +24,20 @@ export default function NavBar({ activeScreen, setActiveScreen }: NavBarProps) {
   return (
     <>
       <View style={styles.navContainer}>
-          <Pressable onPress={() => handlePress("chats")}>
+        {tabs.map((tab) => (
+          <Pressable key={tab.name} onPress={() => handlePress(tab.name)}>
             <View style={styles.navButton}>
               <Ionicons
-                name={activeScreen === "chats" ? "chatbubble-ellipses" : "chatbubble-ellipses-outline"}
+                name={activeScreen === tab.name ? tab.activeIcon : tab.inactiveIcon}
                 size={28}
                 color="#fff"
               />
-              <Text style={[styles.navText, activeScreen === "chats" && styles.activeText]}>
-                Chats
+              <Text style={[styles.navText, activeScreen === tab.name && styles.activeText]}>
+                {tab.name}
               </Text>
             </View>
           </Pressable>
-        
-        <Pressable onPress={() => handlePress("courses")}>
-          <View style={styles.navButton}>
-            <Ionicons name={activeScreen === "courses" ? "book" : "book-outline"} size={28} color="#fff" />
-            <Text style={[styles.navText, activeScreen === "courses" && styles.activeText]}>
-              Courses
-            </Text>
-          </View>
-        </Pressable>
+        ))}
       </View>
 
       {/* add correct link later*/}

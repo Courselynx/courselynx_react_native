@@ -32,11 +32,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 12,
   },
-  avatar: {
-    width: 150,
-    height: 150,
-    borderRadius: 75,
-  },
   name: {
     fontSize: 20,
     fontWeight: "bold",

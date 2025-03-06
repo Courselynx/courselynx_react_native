@@ -3,19 +3,23 @@ import { Ionicons } from "@expo/vector-icons";
 
 interface AvatarProps {
   src: string;
-  onEdit: () => void;
+  hasEditBtn?: boolean;
+  onEdit?: () => void;
 }
 
 const Avatar: React.FC<AvatarProps> = ({
   src,
+  hasEditBtn,
   onEdit,
 }) => {
   return (
     <View>
-      <Image source={{uri: src}} style={styles.avatar} />
-      <TouchableOpacity style={styles.editButton} onPress={onEdit}>
-        <Ionicons name="pencil" size={18} color="white" />
-      </TouchableOpacity>
+      <Image source={{ uri: src }} style={styles.avatar} />
+      {hasEditBtn &&
+        <TouchableOpacity style={styles.editButton} onPress={onEdit}>
+          <Ionicons name="pencil" size={18} color="white" />
+        </TouchableOpacity>
+      }
     </View>
   )
 };
@@ -29,8 +33,7 @@ const styles = StyleSheet.create({
   editButton: {
     position: "absolute",
     bottom: 5,
-    left: "50%",
-    transform: [{ translateX: 45 }],
+    right: 0,
     backgroundColor: "rgba(45, 138, 251, 1)",
     width: 30,
     height: 30,

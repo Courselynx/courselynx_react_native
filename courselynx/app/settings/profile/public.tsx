@@ -2,6 +2,7 @@ import { View, Text, Image, ScrollView } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Button from "@/components/Button";
 import styles from "./profile.styles";
+import Avatar from "@/components/ProfileComponents/Avatar";
 
 interface ProfileProps {
   avatar: string;
@@ -38,7 +39,7 @@ export default function PublicView({ userProfile }: { userProfile: ProfileProps 
       <View style={[styles.container, styles.lightBackgroundColor]}>
         {/* Profile Header */}
         <View style={[styles.profileContainer, styles.horizontalContainer]}>
-          <Image source={{ uri: userProfile.avatar }} style={styles.avatar} />
+          <Avatar src={userProfile.avatar} />
 
           <View>
             <Text style={styles.name}>{userProfile.name}</Text>
