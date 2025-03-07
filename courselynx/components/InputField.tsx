@@ -25,7 +25,7 @@ const InputField: React.FC<InputFieldProps> = ({
   labelSytle = {},
   inputStyle = {},
 }) => {
-  const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const togglePasswordVisibility = () => setIsPasswordVisible(!isPasswordVisible);
 
   return (

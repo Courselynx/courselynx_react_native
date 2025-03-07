@@ -9,13 +9,10 @@ export default function HomeScreen() {
 
   return (
     <>
-      {/* Header */}
       <HomeHeader />
 
-      {/* Body */}
       {activeScreen === "Chats" ? <ChatsTab /> : <CoursesTab />}
 
-      {/* NavBar */}
       <NavBar activeScreen={activeScreen} setActiveScreen={setActiveScreen} />
     </>
   );
